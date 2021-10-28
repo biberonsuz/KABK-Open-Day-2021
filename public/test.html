@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+
+<head>
+    <style>
+        * {
+            padding:0;
+            margin:0;
+        }
+        .box {
+            display:inline-block;
+            background:blue;
+        }
+        #big {
+            height:350px;
+            width:350px;
+        }
+        #small {
+            position:absolute;
+            top:calc(350px - 240px);
+            left:0;
+            z-index:-2;
+            height:200px;
+            width:950px;
+            background:red;
+        }
+        .text {
+            font-size: 350px;
+            color:blue;
+        }
+        .text-container {
+            display:inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="small"></div>
+    <div class="box" id ="big"></div>
+    <div class="text-container">
+        <div class="text">Hello</div>
+    </div>
+</body>
+    <script>
+        let textHeight = document.querySelector('.text-container').offsetHeight;
+        console.log(textHeight)
+    </script>
+</html>
