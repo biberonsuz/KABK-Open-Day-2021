@@ -343,33 +343,37 @@ document.addEventListener('readystatechange', () => {
   }
 });
 
+function imageDownload(element, canvas) {
+  let link = document.createElement('a');
+  link.download = 'kabk-graphic-design-2021-render.png';
+  link.href = canvas.toDataURL()
+  link.style.display = 'none'
+  document.body.appendChild(link);
+  link.click();
+  element.innerHTML = 'Download screenshot'
+}
+
 // save screenshot
-function makeScreenshot() {
+function makeScreenshot(element) {
+  element.innerHTML = "Rendering..."
   html2canvas(document.getElementById("screenshot"), {
       scale: 3
     })
     .then(canvas => {
-      canvas.id = "canvasID";
+      element.innerHTML = "Preparing..."
       let main = document.getElementById("main");
       while (main.firstChild) {
         main.removeChild(main.firstChild);
       }
       main.appendChild(canvas);
+      imageDownload(element, canvas)
     });
 }
 
-document.getElementById("a-make").addEventListener('click', function() {
+document.getElementById("a-download").addEventListener('click', (e) => {
   document.querySelector("#main").style.transform = "scale(1)";
-  document.getElementById("a-make").style.display = "none";
   setTimeout(function() {
-    makeScreenshot();
+    makeScreenshot(e.target)
   }, 500);
-  document.getElementById("a-download").style.display = "inline";
-}, false);
-
-document.getElementById("a-download").addEventListener('click', function() {
-  this.querySelector("a").href = document.getElementById("canvasID").toDataURL();
-  // this.href =
-  //console.log(document.getElementById("canvasID").toDataURL())
-  this.querySelector("a").download = "kabk_graphic-design_render.png";
+  
 }, false);
