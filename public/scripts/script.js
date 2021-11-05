@@ -73,6 +73,7 @@ const width = "1500px";
 const height_2 = "2000px";
 const width_2 = "1125px";
 const main= document.querySelector("#main");
+const downloadInfo = document.querySelector('#download-info')
 let zoom = 1;
 
 // getting font sizes
@@ -375,7 +376,16 @@ function makeScreenshot(element) {
 document.getElementById("a-download").addEventListener('click', (e) => {
   document.querySelector("#main").style.transform = "scale(1)";
   setTimeout(function() {
-    makeScreenshot(e.target)
+    //makeScreenshot(e.target)
+    downloadInfo.style.visibility = 'visible'
+    downloadInfo.style.opacity = 1
+    downloadInfo.addEventListener('click', () => {
+      downloadInfo.style.opacity = 0
+      setTimeout(function() { 
+        downloadInfo.style.visibility = 'hidden'
+      }, 550);
+    })
+
   }, 500);
   
 }, false);

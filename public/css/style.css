@@ -28,6 +28,23 @@ html, body {
   font-family: 'Atlas Grotesk';
 }
 
+#download-info {
+  display: flex;
+  position: absolute;
+  width:100vw;
+  height:100vh;
+  background: rgba(0,0,0,0.7);
+  color:white;
+  z-index: 10000;
+
+  justify-content: center;
+  align-items: center;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
 #gui {
   height: 150px;
   width: 100vw;

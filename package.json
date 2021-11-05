@@ -1,16 +1,22 @@
 {
-  "name": "open-day-tool-06022021-pinar",
+  "name": "open-day-content-creation-tool",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is an online digital image content creation tool used for Instagram posts and stories by the @kabkdesign Open Day event in 2021. It utilises HTML5 canvas in order to provide the user with elements of the branding, in the desired size for posting. Examples can be seen on the @kabkdesign Instagram account.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biberonsuz/kabk-open-day-2021.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/biberonsuz/kabk-open-day-2021/issues"
+  },
+  "homepage": "https://github.com/biberonsuz/kabk-open-day-2021#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "html2canvas": "^1.3.2",
-    "stream": "^0.0.2"
+    "express": "^4.17.1"
   }
 }
