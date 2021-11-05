@@ -343,13 +343,15 @@ document.addEventListener('readystatechange', () => {
   }
 });
 
+
+
 function imageDownload(element, canvas) {
-  let link = document.createElement('a');
-  link.download = 'kabk-graphic-design-2021-render.png';
-  link.href = canvas.toDataURL()
-  link.style.display = 'none'
-  document.body.appendChild(link);
-  link.click();
+  let req = new XMLHttpRequest()
+  req.open("POST", "/download", true)
+  req.setRequestHeader("Content-type", "application/json; charset=utf-16")
+  let data = {imageURL: canvas.toDataURL()}
+  console.log(data)
+  req.send(JSON.stringify(data))
   element.innerHTML = 'Download screenshot'
 }
 
